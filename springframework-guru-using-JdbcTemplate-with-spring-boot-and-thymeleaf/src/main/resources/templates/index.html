@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- META SECTION -->
+    <meta charset="UTF-8"/>
+    <title>Spring Framework Guru JdbcTemplate, Thymeleaf, JPA Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- END META SECTION -->
+    <!-- BEGIN STYLE -->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 1px;
+        }
+    </style>
+    <!-- END STYLE -->
+</head>
+<body>
+<div>
+    <h2>Current Dogs in Rescue</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Rescue Date</th>
+            <th>Vaccinated</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dog : ${dogs}">
+            <td th:text="${dog.id}">Dog ID</td>
+            <td th:text="${dog.name}">Dog Name</td>
+            <td th:text="${dog.rescued}">Rescue Date</td>
+            <td th:text="${dog.vaccinated}">Vaccinated?</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--  begin form for finding at risk dogs -->
+<h2>Find Dogs That Need Vaccines</h2>
+<form action="#" th:action="@{/}" th:object="${search}">
+    <label for="search">Search (yyyy-MM-dd):</label>
+    <input name="search" id="search" />
+    <input type="submit" value="Submit"/>
+    <div th:if="${not #lists.isEmpty(search)}">
+        <h3>Search Results Of At Risk Dogs</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Rescued</th>
+                <th>Vaccinated</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="search : ${search}">
+                <td th:text="${search.id}">Dog ID</td>
+                <td th:text="${search.name}">Dog Name</td>
+                <td th:text="${search.rescued}">Rescue Date</td>
+                <td th:text="${search.vaccinated}">Vaccinated?</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+
+<!-- begin form for adding a dog -->
+<div>
+    <h2>Add a Dog</h2>
+    <form action="#" th:action="@{/}" method="post">
+        <label>Name<input type="text" name="name" id="name"/></label>
+        <label>Rescue Date<input type="text" name="rescued" id="rescued"/></label>
+        <label>Vaccinated<input type="text" name="vaccinated" id="vaccinated"/></label>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+<!-- begin form for deleting a dog -->
+<div>
+    <h2>Delete a Dog</h2>
+    <form action="/delete" th:action="@{/delete}" method="post">
+        <label>Name<input type="text" name="name" id="name"/></label>
+        <label>ID<input type="text" name="id" id="id"/></label>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+<!-- begin form for adding a dog and returning ID -->
+<div>
+    <h2>Return Generated Key When Adding a Dog</h2>
+    <form action="/genkey" th:action="@{/genkey}" method="post">
+        <label>Name<input type="text" name="name" id="name"/></label>
+        <label>Rescue Date<input type="text" name="rescued" id="rescued"/></label>
+        <label>Vaccinated<input type="text" name="vaccinated" id="vaccinated"/></label>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+</body>
+</html>
