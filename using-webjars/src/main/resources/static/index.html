@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebJars Demo</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+
+<div class="container"><br/>
+    <div class="alert alert-success">
+        <strong>Success!</strong> It is working as we expected.
+    </div>
+</div>
+
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('strong').animate({
+            fontSize: '48px'
+        }, "slow");
+    });
+</script>
+
+</body>
+</html>
