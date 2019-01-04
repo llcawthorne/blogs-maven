@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'jdbctemplate-for-queries'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter"
+    compile "org.springframework.boot:spring-boot-starter-jdbc"
+
+    implementation 'mysql:mysql-connector-java:8.0.13'
+    implementation files('libs/ojdbc6.jar')
+    implementation 'org.postgresql:postgresql:42.2.5.jre7'
+    implementation "com.h2database:h2"
+
+    // I'm using assertions in my app to demonstrate points, so this is compile instead of testCompile
+    compile "junit:junit"
+}
