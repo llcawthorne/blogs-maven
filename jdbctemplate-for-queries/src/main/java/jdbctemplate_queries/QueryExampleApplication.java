@@ -27,11 +27,11 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
+public class QueryExampleApplication implements CommandLineRunner {
+    private static final Logger log = LoggerFactory.getLogger(QueryExampleApplication.class);
 
     public static void main(String args[]) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(QueryExampleApplication.class, args);
     }
 
     @Autowired

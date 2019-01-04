@@ -7,7 +7,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import sec.error.MyAccessDeniedHandler;
 
 @SpringBootApplication
-public class Application {
+public class SecurityThymeleafApplication {
 
     @Bean
     public AccessDeniedHandler accessDeniedHandler() {
@@ -15,7 +15,7 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(SecurityThymeleafApplication.class, args);
     }
 
 }

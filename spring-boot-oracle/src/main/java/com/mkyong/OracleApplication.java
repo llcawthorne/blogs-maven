@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 import static java.lang.System.exit;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class OracleApplication implements CommandLineRunner {
 
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -26,7 +26,7 @@ public class Application implements CommandLineRunner {
     CustomerRepository customerRepository;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(OracleApplication.class, args);
     }
 
     @Transactional(readOnly = true)
