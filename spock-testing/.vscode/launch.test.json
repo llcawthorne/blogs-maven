@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "spring-boot-testing",
+                "projectName": "spring-boot-testing",
+                "workingDirectory": "/Users/Lewis/git/blogs/blogs-spring/spock-testing",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "spring-boot-testing",
+                "projectName": "spring-boot-testing",
+                "workingDirectory": "/Users/Lewis/git/blogs/blogs-spring/spock-testing",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
